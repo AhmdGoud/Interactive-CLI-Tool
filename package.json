@@ -1,0 +1,24 @@
+{
+  "name": "cli-tool",
+  "version": "1.0.0",
+  "description": "interactive CLI too",
+  "homepage": "https://github.com/AhmdGoud/Interactive-CLI-Tool-#readme",
+  "bugs": {
+    "url": "https://github.com/AhmdGoud/Interactive-CLI-Tool-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmdGoud/Interactive-CLI-Tool-.git"
+  },
+  "license": "ISC",
+  "author": "Ahmed AbdelRahman",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "inquirer": "^14.2.2"
+  }
+}
