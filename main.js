@@ -1,10 +1,42 @@
-// process.argv : an array of the keywords in a command line
-// process means the excutable file we are in and argv are the arguments
+import fs from "fs";
+import { program } from "commander";
+import inquirer from "inquirer";
 
-const args = process.argv;
+const questions = [
+  {
+    type: "input",
+    name: "fileName",
+    message: "what is the file name",
+  },
+  {
+    type: "input",
+    name: "fileExtention",
+    message: "what is the file extenion",
+  },
+];
 
-if (args[2] === "log") {
-  console.log("logging as u ask");
-} else {
-  console.log("wrong write");
-}
+program
+  .name("CLI-Tool")
+  .description("Simple Interactive CLI Tool")
+  .version("1.2.4");
+
+program
+  .command("createFile")
+  .description("create new file in the same folder")
+  .action(() => {
+    inquirer.prompt(questions).then((answers) => {
+      const fileName = answers.fileName;
+      const fileExtention = answers.fileExtention;
+
+      fs.writeFile(
+        `./${fileName}.${fileExtention}`,
+        "file from cli",
+        "utf-8",
+        (error) => {
+          if (error) throw error;
+        },
+      );
+    });
+  });
+
+program.parse();
